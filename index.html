@@ -10,58 +10,90 @@
 <body>
 
     <header class="hero">
+        <div class="lang-switch">
+            <button id="btn-pt" class="active" onclick="setLanguage('pt')">PT</button>
+            <span>|</span>
+            <button id="btn-en" onclick="setLanguage('en')">EN</button>
+        </div>
+
         <div class="container">
             <h1>Henrique Ribeiro</h1>
             <h2>Network Engineer | Infrastructure Specialist</h2>
-            <p><i class="fas fa-map-marker-alt"></i> Guarulhos, SP | <i class="fas fa-envelope"></i> hrq222@gmail.com</p>
+            <p><i class="fas fa-map-marker-alt"></i> Guarulhos, SP - Brasil | <i class="fas fa-envelope"></i> hrq222@gmail.com</p>
             <div class="social-links">
                 <a href="mailto:hrq222@gmail.com" target="_blank"><i class="fas fa-envelope"></i> Email</a>
-                <a href="https://www.linkedin.com/in/henrique-o-ribeiro/" target="_blank"><i class="fab rel="noopener" linkedin"></i> LinkedIn</a>
-                <a href="https://github.com/hrq222" target="_blank"><i class="fab rel="noopener" github"></i> GitHub</a>
+                <a href="https://linkedin.com/in/seu-perfil" target="_blank"><i class="fab rel="noopener" linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/seu-usuario" target="_blank"><i class="fab rel="noopener" github"></i> GitHub</a>
             </div>
         </div>
     </header>
 
     <main class="container">
         
+        <!-- SOBRE MIM / ABOUT ME -->
         <section class="card">
-            <h3><i class="fas fa-user"></i> Sobre Mim</h3>
-            <p>18 anos de experiência na área de TI, com foco em redes e segurança corporativa. Minha maior força é o trabalho em equipe, comunicação, atenção aos detalhes, respeito ao próximo, e o gosto por aprender e ensinar como forma de fortalecer o time.</p>
+            <h3 class="lang lang-pt"><i class="fas fa-user"></i> Sobre Mim</h3>
+            <h3 class="lang lang-en" style="display:none;"><i class="fas fa-user"></i> About Me</h3>
+            
+            <p class="lang lang-pt">18 anos de experiência na área de TI, com foco em redes e segurança corporativa. Minha maior força é o trabalho em equipe, comunicação, atenção aos detalhes, respeito ao próximo, e o gosto por aprender e ensinar como forma de fortalecer o time.</p>
+            <p class="lang lang-en" style="display:none;">18 years of experience in the IT field, with a focus on enterprise networking and security. My greatest strengths are teamwork, clear communication, attention to detail, respect for others, and a passion for learning and teaching to empower the team.</p>
         </section>
 
+        <!-- EXPERIÊNCIA / EXPERIENCE -->
         <section class="card">
-            <h3><i class="fas fa-briefcase"></i> Experiência Profissional</h3>
+            <h3 class="lang lang-pt"><i class="fas fa-briefcase"></i> Experiência Profissional</h3>
+            <h3 class="lang lang-en" style="display:none;"><i class="fas fa-briefcase"></i> Professional Experience</h3>
             
             <div class="timeline-item">
-                <h4>Especialista de Infraestrutura | Tata Consultancy Services (TCS)</h4>
-                <span class="date">2021 – Presente</span>
-                <p>Administração do ambiente de Application Delivery Control (ADC) Citrix NetScaler e F5 para cliente multinacional do setor de energia nos EUA. Configuração e suporte de VIPs, GSLB, certificados TLS. Administração e suporte em ambientes Microsoft Azure e Oracle OCI (Azure Load Balancer, Azure Application Gateway, Azure Front-Door e OCI Network Load Balancer).</p>
+                <h4 class="lang lang-pt">Especialista de Infraestrutura | Tata Consultancy Services (TCS)</h4>
+                <h4 class="lang lang-en" style="display:none;">Infrastructure Specialist | Tata Consultancy Services (TCS)</h4>
+                <span class="date">2021 – <span class="lang lang-pt">Presente</span><span class="lang lang-en" style="display:none;">Present</span></span>
+                
+                <p class="lang lang-pt">Administração do ambiente de Application Delivery Control (ADC) Citrix NetScaler e F5 para cliente multinacional do setor de energia nos EUA. Configuração e suporte de VIPs, GSLB, certificados TLS. Administração e suporte em ambientes Microsoft Azure e Oracle OCI (Azure Load Balancer, Azure Application Gateway, Azure Front-Door e OCI Network Load Balancer).</p>
+                <p class="lang lang-en" style="display:none;">Managing the Application Delivery Control (ADC) environment using Citrix NetScaler and F5 for a US-based energy sector client. Responsible for configuring and supporting VIPs, GSLB, and TLS certificates. Administration and support across Microsoft Azure and Oracle OCI environments (Azure Load Balancer, Azure Application Gateway, Azure Front-Door, and OCI Network Load Balancer).</p>
             </div>
 
             <div class="timeline-item">
-                <h4>Analista de Infraestrutura de Redes | Tokio Marine Brasil Seguradora</h4>
+                <h4 class="lang lang-pt">Analista de Infraestrutura de Redes | Tokio Marine Brasil Seguradora</h4>
+                <h4 class="lang lang-en" style="display:none;">Network Infrastructure Analyst | Tokio Marine Brasil Seguradora</h4>
                 <span class="date">2010 – 2021</span>
-                <p>Administração de redes locais e remotas, garantindo alta disponibilidade entre todos os sites da companhia. Atuação ativa na configuração de switches/roteadores Cisco (Catalyst), Firewalls Palo Alto e balanceadores Citrix NetScaler. Aplicação de roteamento (BGP, OSPF, Estático), Switching, VPN (IPSec Site-to-Site) e rede Wireless. Suporte a projetos estratégicos e continuidade de negócios.</p>
+                
+                <p class="lang lang-pt">Administração de rede local e remota provendo alta disponibilidade entre todos os sites da companhia. Atuação ativa na configuração de switches/roteadores Cisco (Catalyst), Firewalls Palo Alto e balanceadores Citrix NetScaler. Aplicação de roteamento (BGP, OSPF, Estático), Switching, VPN (IPSec Site-to-Site) e rede Wireless. Suporte a projetos estratégicos e continuidade de negócios.</p>
+                <p class="lang lang-en" style="display:none;">Local and remote network administration ensuring high availability across all company sites. Active hands-on experience configuring Cisco Catalyst switches/routers, Palo Alto Firewalls, and Citrix NetScaler load balancers. Applied routing concepts (BGP, OSPF, Static), switching, VPN (IPSec Site-to-Site), and wireless networks. Supported strategic IT and business continuity projects.</p>
             </div>
 
             <div class="timeline-item">
-                <h4>Analista de TI | Universidade Cruzeiro do Sul</h4>
+                <h4 class="lang lang-pt">Analista de TI | Universidade Cruzeiro do Sul</h4>
+                <h4 class="lang lang-en" style="display:none;">IT Analyst | Universidade Cruzeiro do Sul</h4>
                 <span class="date">2008 – 2010</span>
-                <p>Administração de rede local e suporte técnico a alunos e corpo docente.</p>
+                
+                <p class="lang lang-pt">Administração de rede local e suporte técnico a alunos e corpo docente.</p>
+                <p class="lang lang-en" style="display:none;">Local network administration and technical support for students and faculty members.</p>
             </div>
         </section>
 
+        <!-- FORMAÇÃO / EDUCATION -->
         <section class="card">
-            <h3><i class="fas fa-graduation-cap"></i> Formação Acadêmica</h3>
-            <ul>
+            <h3 class="lang lang-pt"><i class="fas fa-graduation-cap"></i> Formação Acadêmica</h3>
+            <h3 class="lang lang-en" style="display:none;"><i class="fas fa-graduation-cap"></i> Education</h3>
+            
+            <ul class="lang lang-pt">
                 <li><strong>Ciência de Dados e Inteligência Artificial</strong> – Faculdade Saint Paul / EXAME (2026 – 2028)</li>
                 <li><strong>Engenharia de Redes e Telecomunicações</strong> – Universidade São Judas Tadeu (2010 – 2011)</li>
                 <li><strong>Redes de Computadores</strong> – Faculdade ENIAC (2006 – 2009)</li>
             </ul>
+            <ul class="lang lang-en" style="display:none;">
+                <li><strong>Bachelor's Degree in Data Science & Artificial Intelligence</strong> – Saint Paul / EXAME (2026 – 2028)</li>
+                <li><strong>Postgraduate Degree in Network & Telecom Engineering</strong> – Universidade São Judas Tadeu (2010 – 2011)</li>
+                <li><strong>Associate Degree in Computer Networks</strong> – Faculdade ENIAC (2006 – 2009)</li>
+            </ul>
         </section>
 
+        <!-- CERTIFICAÇÕES / CERTIFICATIONS -->
         <section class="card">
-            <h3><i class="fas fa-certificate"></i> Certificações & Cursos</h3>
+            <h3 class="lang lang-pt"><i class="fas fa-certificate"></i> Certificações & Cursos</h3>
+            <h3 class="lang lang-en" style="display:none;"><i class="fas fa-certificate"></i> Certifications & Courses</h3>
+            
             <div class="tags">
                 <span class="tag">Palo Alto PCNSA (ID: 06CCJXC1DF4EQE9Y)</span>
                 <span class="tag">Cisco CCNA R&S (ID: CSCO13653280)</span>
@@ -69,23 +101,50 @@
                 <span class="tag">Microsoft Azure AZ-104</span>
                 <span class="tag">Microsoft Security SC-900</span>
                 <span class="tag">CCNP (Cisco Academy)</span>
-                <span class="tag">Inglês Intermediário</span>
+                <span class="tag"><span class="lang lang-pt">Inglês Intermediário</span><span class="lang lang-en" style="display:none;">Intermediate English</span></span>
             </div>
         </section>
 
+        <!-- SKILLS -->
         <section class="card">
-            <h3><i class="fas fa-code"></i> Competências Técnicas</h3>
+            <h3 class="lang lang-pt"><i class="fas fa-code"></i> Competências Técnicas</h3>
+            <h3 class="lang lang-en" style="display:none;"><i class="fas fa-code"></i> Technical Skills</h3>
+            
             <div class="skills-grid">
-                <div><strong>Redes & Cloud:</strong> Cisco Catalyst, Palo Alto, F5, Citrix NetScaler, BGP, OSPF, VPN IPSec, Azure, OCI, GSLB.</div>
-                <div><strong>Dados & Automação:</strong> Python, Ciência de Dados e IA (em formação).</div>
+                <div class="lang lang-pt"><strong>Redes & Cloud:</strong> Cisco Catalyst, Palo Alto, F5, Citrix NetScaler, BGP, OSPF, VPN IPSec, Azure, OCI, GSLB.</div>
+                <div class="lang lang-en" style="display:none;"><strong>Networking & Cloud:</strong> Cisco Catalyst, Palo Alto, F5, Citrix NetScaler, BGP, OSPF, IPSec VPN, Azure, OCI, GSLB.</div>
+                
+                <div class="lang lang-pt"><strong>Dados & Automação:</strong> Python, Ciência de Dados e IA (Em formação).</div>
+                <div class="lang lang-en" style="display:none;"><strong>Data & Automation:</strong> Python, Data Science and AI (Degree in progress).</div>
             </div>
         </section>
 
     </main>
 
     <footer>
-        <p>&copy; Henrique Ribeiro - Hospedado via GitHub Pages</p>
+        <p>&copy; Henrique Ribeiro - Hosted on GitHub Pages</p>
     </footer>
 
+    <!-- SCRIPT PARA TROCAR O IDIOMA -->
+    <script>
+        function setLanguage(lang) {
+            const ptElements = document.querySelectorAll('.lang-pt');
+            const enElements = document.querySelectorAll('.lang-en');
+            const btnPt = document.getElementById('btn-pt');
+            const btnEn = document.getElementById('btn-en');
+
+            if (lang === 'en') {
+                ptElements.forEach(el => el.style.display = 'none');
+                enElements.forEach(el => el.style.display = 'block');
+                btnEn.classList.add('active');
+                btnPt.classList.remove('active');
+            } else {
+                enElements.forEach(el => el.style.display = 'none');
+                ptElements.forEach(el => el.style.display = 'block');
+                btnPt.classList.add('active');
+                btnEn.classList.remove('active');
+            }
+        }
+    </script>
 </body>
 </html>
