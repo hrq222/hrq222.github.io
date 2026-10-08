@@ -1,150 +1,867 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Henrique Ribeiro | Network Engineer & Infrastructure Specialist</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Henrique Ribeiro — Infrastructure & Cloud Specialist with 18+ years of experience in Networking, Security, Application Delivery and Cloud.">
+  <meta name="author" content="Henrique Ribeiro">
+  <meta name="theme-color" content="#0b1220">
+  <title>Henrique Ribeiro | Infrastructure & Cloud Specialist</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --surface: rgba(255,255,255,.88);
+      --surface-solid: #ffffff;
+      --text: #101828;
+      --muted: #667085;
+      --line: #e4e7ec;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --accent: #06b6d4;
+      --hero: #0b1220;
+      --hero-2: #14213d;
+      --tag: #eef4ff;
+      --shadow: 0 18px 50px rgba(16,24,40,.08);
+      --radius: 22px;
+      --max: 1120px;
+    }
+
+    html[data-theme="dark"] {
+      --bg: #070b12;
+      --surface: rgba(15,23,42,.82);
+      --surface-solid: #0f172a;
+      --text: #f2f4f7;
+      --muted: #98a2b3;
+      --line: #263244;
+      --primary: #60a5fa;
+      --primary-dark: #93c5fd;
+      --accent: #22d3ee;
+      --hero: #020617;
+      --hero-2: #111c35;
+      --tag: #14213b;
+      --shadow: 0 18px 60px rgba(0,0,0,.25);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 0%, rgba(37,99,235,.08), transparent 30%),
+        radial-gradient(circle at 90% 10%, rgba(6,182,212,.07), transparent 25%),
+        var(--bg);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(var(--max), calc(100% - 36px)); margin: auto; }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: color-mix(in srgb, var(--bg) 82%, transparent);
+      border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
+    }
+    .nav-inner {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .brand {
+      font-weight: 800;
+      letter-spacing: -.03em;
+    }
+    .brand span { color: var(--primary); }
+    .nav-actions { display: flex; align-items: center; gap: 8px; }
+    .nav-links { display: flex; gap: 20px; color: var(--muted); font-size: .9rem; }
+    .nav-links a:hover { color: var(--text); }
+    .icon-btn, .lang-btn {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--text);
+      border-radius: 999px;
+      cursor: pointer;
+      font: inherit;
+    }
+    .icon-btn { width: 40px; height: 40px; }
+    .lang-btn { padding: 8px 12px; font-size: .82rem; font-weight: 700; }
+    .lang-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: white;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(37,99,235,.35), transparent 30%),
+        radial-gradient(circle at 10% 80%, rgba(6,182,212,.18), transparent 30%),
+        linear-gradient(135deg, var(--hero), var(--hero-2));
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -10% -120px -10%;
+      height: 220px;
+      background: var(--bg);
+      border-radius: 50% 50% 0 0;
+    }
+    .hero-inner {
+      min-height: 610px;
+      display: grid;
+      grid-template-columns: 1.35fr .65fr;
+      align-items: center;
+      gap: 50px;
+      position: relative;
+      z-index: 1;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: .78rem;
+      color: #93c5fd;
+      border: 1px solid rgba(147,197,253,.25);
+      background: rgba(37,99,235,.12);
+      border-radius: 999px;
+      padding: 7px 12px;
+      margin-bottom: 22px;
+    }
+    h1 {
+      font-size: clamp(2.6rem, 6vw, 5.4rem);
+      line-height: .98;
+      letter-spacing: -.055em;
+      margin: 0 0 20px;
+      max-width: 760px;
+    }
+    .hero-title {
+      font-size: clamp(1.1rem, 2vw, 1.45rem);
+      color: #cbd5e1;
+      margin: 0 0 20px;
+      font-weight: 600;
+    }
+    .hero-summary {
+      color: #b8c3d4;
+      max-width: 720px;
+      font-size: 1.02rem;
+      margin-bottom: 30px;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 17px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.18);
+      font-weight: 700;
+      font-size: .9rem;
+      transition: .2s ease;
+    }
+    .btn-primary { background: white; color: #0f172a; }
+    .btn-secondary { background: rgba(255,255,255,.07); color: white; }
+    .btn:hover { transform: translateY(-2px); }
+
+    .hero-card {
+      border: 1px solid rgba(255,255,255,.13);
+      background: rgba(255,255,255,.06);
+      backdrop-filter: blur(12px);
+      padding: 26px;
+      border-radius: 24px;
+      box-shadow: 0 25px 80px rgba(0,0,0,.18);
+    }
+    .hero-card .label {
+      color: #94a3b8;
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      margin-bottom: 16px;
+    }
+    .stack { display: flex; flex-wrap: wrap; gap: 9px; }
+    .stack span {
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      padding: 8px 10px;
+      border-radius: 9px;
+      font-size: .78rem;
+      color: #e2e8f0;
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    /* SECTIONS */
+    main { position: relative; z-index: 2; }
+    section { padding: 82px 0; }
+    .section-head { margin-bottom: 34px; max-width: 760px; }
+    .kicker {
+      color: var(--primary);
+      font-family: "JetBrains Mono", monospace;
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 9px;
+    }
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      letter-spacing: -.04em;
+      line-height: 1.1;
+      margin: 0 0 12px;
+    }
+    .section-head p { margin: 0; color: var(--muted); }
+
+    .summary-card, .timeline-card, .project, .education-card, .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .summary-card { padding: 30px; font-size: 1.02rem; }
+    .summary-card strong { color: var(--text); }
+
+    /* EXPERTISE */
+    .expertise {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .expertise-card {
+      padding: 23px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: var(--surface-solid);
+    }
+    .expertise-icon {
+      width: 40px; height: 40px;
+      display: grid; place-items: center;
+      border-radius: 12px;
+      background: var(--tag);
+      color: var(--primary);
+      margin-bottom: 16px;
+      font-weight: 800;
+    }
+    .expertise-card h3 { margin: 0 0 8px; font-size: 1rem; }
+    .expertise-card p { margin: 0; color: var(--muted); font-size: .86rem; }
+
+    /* STATS */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 25px;
+    }
+    .stat {
+      padding: 22px;
+      border: 1px solid var(--line);
+      background: var(--surface-solid);
+      border-radius: 18px;
+    }
+    .stat strong {
+      display: block;
+      font-size: 1.8rem;
+      letter-spacing: -.04em;
+      color: var(--primary);
+    }
+    .stat span { color: var(--muted); font-size: .82rem; }
+
+    /* EXPERIENCE */
+    .timeline { position: relative; }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 9px;
+      top: 18px;
+      bottom: 18px;
+      width: 1px;
+      background: var(--line);
+    }
+    .timeline-item {
+      position: relative;
+      padding-left: 42px;
+      margin-bottom: 25px;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: 3px;
+      top: 20px;
+      width: 13px; height: 13px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 0 5px var(--bg);
+    }
+    .timeline-card { padding: 28px; }
+    .role { font-size: 1.15rem; font-weight: 800; margin: 0; }
+    .company { color: var(--primary); font-weight: 700; margin: 4px 0; }
+    .date { color: var(--muted); font-family: "JetBrains Mono", monospace; font-size: .78rem; margin-bottom: 18px; }
+    .timeline-card ul { margin: 0; padding-left: 20px; }
+    .timeline-card li { margin: 7px 0; color: var(--muted); }
+    .timeline-card li::marker { color: var(--primary); }
+
+    /* PROJECTS */
+    .projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .project { padding: 27px; }
+    .project-number {
+      font-family: "JetBrains Mono", monospace;
+      color: var(--primary);
+      font-size: .78rem;
+      margin-bottom: 18px;
+    }
+    .project h3 { margin: 0 0 9px; font-size: 1.12rem; }
+    .project p { color: var(--muted); font-size: .88rem; margin: 0 0 20px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; }
+    .tag {
+      background: var(--tag);
+      color: var(--primary);
+      border-radius: 999px;
+      padding: 5px 9px;
+      font-size: .72rem;
+      font-weight: 700;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .skill-group {
+      padding: 24px;
+      background: var(--surface-solid);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+    }
+    .skill-group h3 { margin: 0 0 13px; font-size: .98rem; }
+    .skill-group p { margin: 0; color: var(--muted); font-size: .87rem; }
+
+    /* EDUCATION/CERTS */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .education-card { padding: 26px; }
+    .education-item { padding: 15px 0; border-bottom: 1px solid var(--line); }
+    .education-item:first-child { padding-top: 0; }
+    .education-item:last-child { border-bottom: 0; padding-bottom: 0; }
+    .education-item strong { display: block; }
+    .education-item span { color: var(--muted); font-size: .82rem; }
+
+    /* CONTACT */
+    .contact-card {
+      padding: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+    .contact-card p { color: var(--muted); margin: 7px 0 0; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 9px; }
+    .contact-link {
+      border: 1px solid var(--line);
+      background: var(--surface-solid);
+      padding: 10px 14px;
+      border-radius: 11px;
+      font-size: .85rem;
+      font-weight: 700;
+    }
+    .contact-link:hover { border-color: var(--primary); color: var(--primary); }
+
+    footer {
+      padding: 30px 0 50px;
+      color: var(--muted);
+      font-size: .78rem;
+      text-align: center;
+    }
+
+    [data-lang="pt"] { display: none; }
+    html[data-language="pt"] [data-lang="en"] { display: none; }
+    html[data-language="pt"] [data-lang="pt"] { display: block; }
+    html[data-language="pt"] .inline-pt { display: inline; }
+    html[data-language="pt"] .inline-en { display: none; }
+    .inline-pt { display: none; }
+
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; padding: 80px 0 120px; }
+      .hero-card { max-width: 700px; }
+      .expertise { grid-template-columns: repeat(2, 1fr); }
+      .projects { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 620px) {
+      .container { width: min(var(--max), calc(100% - 24px)); }
+      section { padding: 62px 0; }
+      .hero-inner { min-height: auto; padding: 70px 0 120px; }
+      h1 { font-size: 3rem; }
+      .expertise, .skills-grid, .two-col, .stats { grid-template-columns: 1fr; }
+      .timeline-card { padding: 22px; }
+      .timeline-item { padding-left: 31px; }
+      .timeline::before { left: 7px; }
+      .timeline-dot { left: 1px; }
+      .contact-card { flex-direction: column; align-items: flex-start; }
+      .hero-actions .btn { width: 100%; }
+    }
+
+    @media print {
+      nav, .hero-actions, .contact-links, .icon-btn, .lang-btn { display: none !important; }
+      .hero { color: #000; background: #fff; }
+      .hero-summary, .hero-title { color: #333; }
+      .hero-card { color: #000; border-color: #ddd; }
+      body { background: #fff; }
+      .summary-card, .timeline-card, .project, .education-card, .contact-card { box-shadow: none; }
+    }
+  </style>
 </head>
+
 <body>
+  <nav>
+    <div class="container nav-inner">
+      <a class="brand" href="#top">HR<span>.</span></a>
 
-    <header class="hero">
-        <div class="lang-switch">
-            <button id="btn-pt" class="active" onclick="setLanguage('pt')">PT</button>
-            <span>|</span>
-            <button id="btn-en" onclick="setLanguage('en')">EN</button>
+      <div class="nav-links">
+        <a href="#about"><span class="inline-en">About</span><span class="inline-pt">Sobre</span></a>
+        <a href="#experience"><span class="inline-en">Experience</span><span class="inline-pt">Experiência</span></a>
+        <a href="#projects"><span class="inline-en">Projects</span><span class="inline-pt">Projetos</span></a>
+        <a href="#skills"><span class="inline-en">Skills</span><span class="inline-pt">Competências</span></a>
+        <a href="#contact"><span class="inline-en">Contact</span><span class="inline-pt">Contato</span></a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="lang-btn active" id="enBtn" onclick="setLanguage('en')">EN</button>
+        <button class="lang-btn" id="ptBtn" onclick="setLanguage('pt')">PT</button>
+        <button class="icon-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">◐</button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="container hero-inner">
+      <div>
+        <div class="eyebrow">
+          <span>●</span>
+          <span class="inline-en">OPEN TO PROFESSIONAL OPPORTUNITIES</span>
+          <span class="inline-pt">ABERTO A OPORTUNIDADES PROFISSIONAIS</span>
         </div>
 
-        <div class="container">
-            <h1>Henrique Ribeiro</h1>
-            <h2>Network Engineer | Infrastructure Specialist</h2>
-            <p><i class="fas fa-map-marker-alt"></i> Guarulhos, SP - Brasil | <i class="fas fa-envelope"></i> hrq222@gmail.com</p>
-            <div class="social-links">
-                <a href="mailto:hrq222@gmail.com" target="_blank"><i class="fas fa-envelope"></i> Email</a>
-                <a href="https://linkedin.com/in/seu-perfil" target="_blank"><i class="fab rel="noopener" linkedin"></i> LinkedIn</a>
-                <a href="https://github.com/seu-usuario" target="_blank"><i class="fab rel="noopener" github"></i> GitHub</a>
-            </div>
+        <h1>Henrique Ribeiro</h1>
+
+        <p class="hero-title">
+          <span class="inline-en">Infrastructure &amp; Cloud Specialist</span>
+          <span class="inline-pt">Especialista em Infraestrutura &amp; Cloud</span>
+        </p>
+
+        <p class="hero-summary">
+          <span class="inline-en">
+            18+ years of experience across enterprise networking, security, application delivery and hybrid cloud infrastructure.
+          </span>
+          <span class="inline-pt">
+            Mais de 18 anos de experiência em redes corporativas, segurança, Application Delivery e infraestrutura híbrida em Cloud.
+          </span>
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="mailto:hrq222@gmail.com">
+            <span class="inline-en">Get in touch</span><span class="inline-pt">Entrar em contato</span>
+          </a>
+          <a class="btn btn-secondary" href="https://www.linkedin.com/in/henrique-ribeiro-27bab883/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-secondary" href="https://github.com/hrq222" target="_blank" rel="noopener">GitHub</a>
         </div>
-    </header>
+      </div>
 
-    <main class="container">
-        
-        <!-- SOBRE MIM / ABOUT ME -->
-        <section class="card">
-            <h3 class="lang lang-pt"><i class="fas fa-user"></i> Sobre Mim</h3>
-            <h3 class="lang lang-en" style="display:none;"><i class="fas fa-user"></i> About Me</h3>
-            
-            <p class="lang lang-pt">18 anos de experiência na área de TI, com foco em redes e segurança corporativa. Minha maior força é o trabalho em equipe, comunicação, atenção aos detalhes, respeito ao próximo, e o gosto por aprender e ensinar como forma de fortalecer o time.</p>
-            <p class="lang lang-en" style="display:none;">18 years of experience in the IT field, with a focus on enterprise networking and security. My greatest strengths are teamwork, clear communication, attention to detail, respect for others, and a passion for learning and teaching to empower the team.</p>
-        </section>
+      <aside class="hero-card">
+        <div class="label">
+          <span class="inline-en">Core technology stack</span>
+          <span class="inline-pt">Principais tecnologias</span>
+        </div>
+        <div class="stack">
+          <span>F5 BIG-IP</span>
+          <span>Citrix ADC</span>
+          <span>Azure</span>
+          <span>OCI</span>
+          <span>AWS</span>
+          <span>Cisco</span>
+          <span>Palo Alto</span>
+          <span>BGP</span>
+          <span>OSPF</span>
+          <span>GSLB</span>
+          <span>Python</span>
+          <span>Terraform</span>
+        </div>
+      </aside>
+    </div>
+  </header>
 
-        <!-- EXPERIÊNCIA / EXPERIENCE -->
-        <section class="card">
-            <h3 class="lang lang-pt"><i class="fas fa-briefcase"></i> Experiência Profissional</h3>
-            <h3 class="lang lang-en" style="display:none;"><i class="fas fa-briefcase"></i> Professional Experience</h3>
-            
-            <div class="timeline-item">
-                <h4 class="lang lang-pt">Especialista de Infraestrutura | Tata Consultancy Services (TCS)</h4>
-                <h4 class="lang lang-en" style="display:none;">Infrastructure Specialist | Tata Consultancy Services (TCS)</h4>
-                <span class="date">2021 – <span class="lang lang-pt">Presente</span><span class="lang lang-en" style="display:none;">Present</span></span>
-                
-                <p class="lang lang-pt">Administração do ambiente de Application Delivery Control (ADC) Citrix NetScaler e F5 para cliente multinacional do setor de energia nos EUA. Configuração e suporte de VIPs, GSLB, certificados TLS. Administração e suporte em ambientes Microsoft Azure e Oracle OCI (Azure Load Balancer, Azure Application Gateway, Azure Front-Door e OCI Network Load Balancer).</p>
-                <p class="lang lang-en" style="display:none;">Managing the Application Delivery Control (ADC) environment using Citrix NetScaler and F5 for a US-based energy sector client. Responsible for configuring and supporting VIPs, GSLB, and TLS certificates. Administration and support across Microsoft Azure and Oracle OCI environments (Azure Load Balancer, Azure Application Gateway, Azure Front-Door, and OCI Network Load Balancer).</p>
+  <main>
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">01 — <span class="inline-en">Profile</span><span class="inline-pt">Perfil</span></div>
+          <h2><span class="inline-en">Infrastructure with a strong enterprise foundation.</span><span class="inline-pt">Infraestrutura com uma base sólida em ambientes corporativos.</span></h2>
+        </div>
+
+        <div class="summary-card">
+          <div data-lang="en">
+            <p>
+              I am an <strong>Infrastructure &amp; Cloud Specialist</strong> with more than 18 years of experience in enterprise IT environments, with a strong background in networking, security, application delivery and hybrid cloud.
+            </p>
+            <p>
+              My hands-on experience includes <strong>Cisco networking, Palo Alto firewalls, F5 BIG-IP, Citrix ADC/NetScaler, Microsoft Azure and Oracle Cloud Infrastructure</strong>, supporting high-availability environments and troubleshooting complex connectivity and application delivery issues.
+            </p>
+            <p>
+              I am currently expanding my capabilities in <strong>F5 BIG-IP, Python automation, Infrastructure as Code, Data Engineering and Artificial Intelligence</strong>, building on a career that started in networking and evolved toward cloud and modern infrastructure.
+            </p>
+          </div>
+
+          <div data-lang="pt">
+            <p>
+              Sou <strong>Especialista em Infraestrutura &amp; Cloud</strong>, com mais de 18 anos de experiência em ambientes corporativos de TI e sólida atuação em redes, segurança, Application Delivery e infraestrutura híbrida em Cloud.
+            </p>
+            <p>
+              Minha experiência prática inclui <strong>redes Cisco, firewalls Palo Alto, F5 BIG-IP, Citrix ADC/NetScaler, Microsoft Azure e Oracle Cloud Infrastructure</strong>, atuando em ambientes de alta disponibilidade e na análise e solução de problemas complexos de conectividade e entrega de aplicações.
+            </p>
+            <p>
+              Atualmente estou ampliando meus conhecimentos em <strong>F5 BIG-IP, automação com Python, Infrastructure as Code, Engenharia de Dados e Inteligência Artificial</strong>, dando continuidade a uma carreira iniciada em redes e evoluída para Cloud e infraestrutura moderna.
+            </p>
+          </div>
+        </div>
+
+        <div class="stats">
+          <div class="stat"><strong>18+</strong><span><span class="inline-en">Years in IT</span><span class="inline-pt">Anos em TI</span></span></div>
+          <div class="stat"><strong>3</strong><span><span class="inline-en">Cloud environments</span><span class="inline-pt">Ambientes Cloud</span></span></div>
+          <div class="stat"><strong>4</strong><span><span class="inline-en">Core domains</span><span class="inline-pt">Áreas principais</span></span></div>
+          <div class="stat"><strong>2008</strong><span><span class="inline-en">Career start</span><span class="inline-pt">Início da carreira</span></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">02 — <span class="inline-en">Core Expertise</span><span class="inline-pt">Especialidades</span></div>
+          <h2><span class="inline-en">Where I create the most value.</span><span class="inline-pt">Onde gero mais valor.</span></h2>
+        </div>
+
+        <div class="expertise">
+          <article class="expertise-card">
+            <div class="expertise-icon">01</div>
+            <h3><span class="inline-en">Networking</span><span class="inline-pt">Redes</span></h3>
+            <p>Cisco Catalyst · Routing · Switching · BGP · OSPF · TCP/IP · VPN · DNS · Wireless</p>
+          </article>
+          <article class="expertise-card">
+            <div class="expertise-icon">02</div>
+            <h3><span class="inline-en">Security</span><span class="inline-pt">Segurança</span></h3>
+            <p>Palo Alto · Firewalls · Security Policies · IPSec · TLS/SSL · Network Security</p>
+          </article>
+          <article class="expertise-card">
+            <div class="expertise-icon">03</div>
+            <h3><span class="inline-en">Application Delivery</span><span class="inline-pt">Application Delivery</span></h3>
+            <p>F5 BIG-IP · Citrix ADC/NetScaler · VIPs · GSLB · Load Balancing · TLS</p>
+          </article>
+          <article class="expertise-card">
+            <div class="expertise-icon">04</div>
+            <h3><span class="inline-en">Cloud</span><span class="inline-pt">Cloud</span></h3>
+            <p>Microsoft Azure · AWS · Oracle OCI · Azure Load Balancer · Application Gateway · Front Door</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">03 — <span class="inline-en">Experience</span><span class="inline-pt">Experiência</span></div>
+          <h2><span class="inline-en">18+ years evolving with infrastructure technology.</span><span class="inline-pt">Mais de 18 anos evoluindo com a tecnologia de infraestrutura.</span></h2>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <p class="role">
+                <span class="inline-en">Infrastructure Specialist</span>
+                <span class="inline-pt">Especialista de Infraestrutura</span>
+              </p>
+              <p class="company">Tata Consultancy Services (TCS)</p>
+              <p class="date">2021 — Present</p>
+
+              <ul data-lang="en">
+                <li>Administration and support of enterprise <strong>F5 BIG-IP and Citrix ADC/NetScaler</strong> environments for a multinational US-based energy-sector client.</li>
+                <li>Configuration and support of application delivery components including <strong>VIPs, GSLB and TLS/SSL certificates</strong>.</li>
+                <li>Administration and troubleshooting across <strong>Microsoft Azure and Oracle Cloud Infrastructure</strong>.</li>
+                <li>Hands-on support for <strong>Azure Load Balancer, Azure Application Gateway, Azure Front Door and OCI Network Load Balancer</strong>.</li>
+                <li>Investigation of network, application connectivity and traffic-management issues in complex enterprise environments.</li>
+              </ul>
+
+              <ul data-lang="pt">
+                <li>Administração e suporte de ambientes corporativos de <strong>F5 BIG-IP e Citrix ADC/NetScaler</strong> para cliente multinacional do setor de energia nos Estados Unidos.</li>
+                <li>Configuração e suporte de componentes de Application Delivery, incluindo <strong>VIPs, GSLB e certificados TLS/SSL</strong>.</li>
+                <li>Administração e troubleshooting em ambientes <strong>Microsoft Azure e Oracle Cloud Infrastructure</strong>.</li>
+                <li>Atuação com <strong>Azure Load Balancer, Azure Application Gateway, Azure Front Door e OCI Network Load Balancer</strong>.</li>
+                <li>Análise de problemas de rede, conectividade de aplicações e gerenciamento de tráfego em ambientes corporativos complexos.</li>
+              </ul>
             </div>
+          </article>
 
-            <div class="timeline-item">
-                <h4 class="lang lang-pt">Analista de Infraestrutura de Redes | Tokio Marine Brasil Seguradora</h4>
-                <h4 class="lang lang-en" style="display:none;">Network Infrastructure Analyst | Tokio Marine Brasil Seguradora</h4>
-                <span class="date">2010 – 2021</span>
-                
-                <p class="lang lang-pt">Administração de rede local e remota provendo alta disponibilidade entre todos os sites da companhia. Atuação ativa na configuração de switches/roteadores Cisco (Catalyst), Firewalls Palo Alto e balanceadores Citrix NetScaler. Aplicação de roteamento (BGP, OSPF, Estático), Switching, VPN (IPSec Site-to-Site) e rede Wireless. Suporte a projetos estratégicos e continuidade de negócios.</p>
-                <p class="lang lang-en" style="display:none;">Local and remote network administration ensuring high availability across all company sites. Active hands-on experience configuring Cisco Catalyst switches/routers, Palo Alto Firewalls, and Citrix NetScaler load balancers. Applied routing concepts (BGP, OSPF, Static), switching, VPN (IPSec Site-to-Site), and wireless networks. Supported strategic IT and business continuity projects.</p>
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <p class="role">
+                <span class="inline-en">Network Infrastructure Analyst</span>
+                <span class="inline-pt">Analista de Infraestrutura de Redes</span>
+              </p>
+              <p class="company">Tokio Marine Brasil Seguradora</p>
+              <p class="date">2010 — 2021</p>
+
+              <ul data-lang="en">
+                <li>Administration of local and remote enterprise network infrastructure, supporting high availability across corporate sites.</li>
+                <li>Configuration and troubleshooting of <strong>Cisco Catalyst switches and routers</strong>.</li>
+                <li>Administration of <strong>Palo Alto firewalls</strong> and <strong>Citrix NetScaler/ADC</strong> load-balancing environments.</li>
+                <li>Routing using <strong>BGP, OSPF and static routing</strong>, plus switching and network troubleshooting.</li>
+                <li>Implementation and support of <strong>IPSec site-to-site VPNs</strong> and wireless infrastructure.</li>
+                <li>Participation in strategic infrastructure projects and business continuity initiatives.</li>
+              </ul>
+
+              <ul data-lang="pt">
+                <li>Administração de infraestrutura de redes corporativas locais e remotas, apoiando alta disponibilidade entre os sites da companhia.</li>
+                <li>Configuração e troubleshooting de <strong>switches e roteadores Cisco Catalyst</strong>.</li>
+                <li>Administração de <strong>firewalls Palo Alto</strong> e ambientes de balanceamento <strong>Citrix NetScaler/ADC</strong>.</li>
+                <li>Aplicação de <strong>BGP, OSPF e roteamento estático</strong>, além de switching e troubleshooting de redes.</li>
+                <li>Implementação e suporte de <strong>VPNs IPSec site-to-site</strong> e infraestrutura wireless.</li>
+                <li>Participação em projetos estratégicos de infraestrutura e iniciativas de continuidade de negócios.</li>
+              </ul>
             </div>
+          </article>
 
-            <div class="timeline-item">
-                <h4 class="lang lang-pt">Analista de TI | Universidade Cruzeiro do Sul</h4>
-                <h4 class="lang lang-en" style="display:none;">IT Analyst | Universidade Cruzeiro do Sul</h4>
-                <span class="date">2008 – 2010</span>
-                
-                <p class="lang lang-pt">Administração de rede local e suporte técnico a alunos e corpo docente.</p>
-                <p class="lang lang-en" style="display:none;">Local network administration and technical support for students and faculty members.</p>
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <p class="role">
+                <span class="inline-en">IT Analyst</span>
+                <span class="inline-pt">Analista de TI</span>
+              </p>
+              <p class="company">Universidade Cruzeiro do Sul</p>
+              <p class="date">2008 — 2010</p>
+
+              <ul data-lang="en">
+                <li>Local network administration and technical support for students, faculty and institutional users.</li>
+                <li>Network troubleshooting and day-to-day infrastructure support.</li>
+              </ul>
+
+              <ul data-lang="pt">
+                <li>Administração de rede local e suporte técnico a alunos, docentes e usuários da instituição.</li>
+                <li>Troubleshooting de redes e suporte à infraestrutura no dia a dia.</li>
+              </ul>
             </div>
-        </section>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        <!-- FORMAÇÃO / EDUCATION -->
-        <section class="card">
-            <h3 class="lang lang-pt"><i class="fas fa-graduation-cap"></i> Formação Acadêmica</h3>
-            <h3 class="lang lang-en" style="display:none;"><i class="fas fa-graduation-cap"></i> Education</h3>
-            
-            <ul class="lang lang-pt">
-                <li><strong>Ciência de Dados e Inteligência Artificial</strong> – Faculdade Saint Paul / EXAME (2026 – 2028)</li>
-                <li><strong>Engenharia de Redes e Telecomunicações</strong> – Universidade São Judas Tadeu (2010 – 2011)</li>
-                <li><strong>Redes de Computadores</strong> – Faculdade ENIAC (2006 – 2009)</li>
-            </ul>
-            <ul class="lang lang-en" style="display:none;">
-                <li><strong>Bachelor's Degree in Data Science & Artificial Intelligence</strong> – Saint Paul / EXAME (2026 – 2028)</li>
-                <li><strong>Postgraduate Degree in Network & Telecom Engineering</strong> – Universidade São Judas Tadeu (2010 – 2011)</li>
-                <li><strong>Associate Degree in Computer Networks</strong> – Faculdade ENIAC (2006 – 2009)</li>
-            </ul>
-        </section>
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">04 — <span class="inline-en">Selected Projects &amp; Focus</span><span class="inline-pt">Projetos &amp; Foco</span></div>
+          <h2><span class="inline-en">From enterprise networking to hybrid cloud.</span><span class="inline-pt">Da infraestrutura de redes à Cloud híbrida.</span></h2>
+        </div>
 
-        <!-- CERTIFICAÇÕES / CERTIFICATIONS -->
-        <section class="card">
-            <h3 class="lang lang-pt"><i class="fas fa-certificate"></i> Certificações & Cursos</h3>
-            <h3 class="lang lang-en" style="display:none;"><i class="fas fa-certificate"></i> Certifications & Courses</h3>
-            
-            <div class="tags">
-                <span class="tag">Palo Alto PCNSA (ID: 06CCJXC1DF4EQE9Y)</span>
-                <span class="tag">Cisco CCNA R&S (ID: CSCO13653280)</span>
-                <span class="tag">Microsoft Azure AZ-900</span>
-                <span class="tag">Microsoft Azure AZ-104</span>
-                <span class="tag">Microsoft Security SC-900</span>
-                <span class="tag">CCNP (Cisco Academy)</span>
-                <span class="tag"><span class="lang lang-pt">Inglês Intermediário</span><span class="lang lang-en" style="display:none;">Intermediate English</span></span>
+        <div class="projects">
+          <article class="project">
+            <div class="project-number">PROJECT / 01</div>
+            <h3><span class="inline-en">Enterprise Application Delivery</span><span class="inline-pt">Application Delivery Corporativo</span></h3>
+            <p>
+              <span class="inline-en">Enterprise traffic management and application delivery using F5 BIG-IP and Citrix ADC/NetScaler, including VIPs, GSLB and TLS.</span>
+              <span class="inline-pt">Gerenciamento de tráfego e entrega de aplicações corporativas com F5 BIG-IP e Citrix ADC/NetScaler, incluindo VIPs, GSLB e TLS.</span>
+            </p>
+            <div class="tags"><span class="tag">F5 BIG-IP</span><span class="tag">Citrix ADC</span><span class="tag">GSLB</span><span class="tag">TLS</span></div>
+          </article>
+
+          <article class="project">
+            <div class="project-number">PROJECT / 02</div>
+            <h3><span class="inline-en">Hybrid Cloud Infrastructure</span><span class="inline-pt">Infraestrutura Cloud Híbrida</span></h3>
+            <p>
+              <span class="inline-en">Infrastructure support across Microsoft Azure and Oracle OCI, connecting enterprise networking, security and application delivery capabilities.</span>
+              <span class="inline-pt">Suporte de infraestrutura em Microsoft Azure e Oracle OCI, conectando redes corporativas, segurança e recursos de Application Delivery.</span>
+            </p>
+            <div class="tags"><span class="tag">Azure</span><span class="tag">OCI</span><span class="tag">Load Balancing</span><span class="tag">Networking</span></div>
+          </article>
+
+          <article class="project">
+            <div class="project-number">FOCUS / 03</div>
+            <h3><span class="inline-en">Automation &amp; Modern Infrastructure</span><span class="inline-pt">Automação &amp; Infraestrutura Moderna</span></h3>
+            <p>
+              <span class="inline-en">Current development focus on Python automation, APIs, Infrastructure as Code, Data Engineering and Artificial Intelligence.</span>
+              <span class="inline-pt">Foco atual no desenvolvimento de automação com Python, APIs, Infrastructure as Code, Engenharia de Dados e Inteligência Artificial.</span>
+            </p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">APIs</span><span class="tag">Terraform</span><span class="tag">Data</span><span class="tag">AI</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">05 — <span class="inline-en">Technical Skills</span><span class="inline-pt">Competências Técnicas</span></div>
+          <h2><span class="inline-en">A practical, infrastructure-first skill set.</span><span class="inline-pt">Um conjunto de competências com forte base em infraestrutura.</span></h2>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3>Networking</h3>
+            <p>Cisco Catalyst · Routing · Switching · BGP · OSPF · TCP/IP · DNS · IPSec VPN · Wireless</p>
+          </div>
+          <div class="skill-group">
+            <h3>Security</h3>
+            <p>Palo Alto · Firewalls · Security Policies · Network Security · TLS/SSL</p>
+          </div>
+          <div class="skill-group">
+            <h3>Application Delivery</h3>
+            <p>F5 BIG-IP · Citrix ADC/NetScaler · VIPs · GSLB · Load Balancing · Traffic Management</p>
+          </div>
+          <div class="skill-group">
+            <h3>Cloud</h3>
+            <p>Microsoft Azure · AWS · Oracle OCI · Azure Load Balancer · Application Gateway · Front Door · OCI Network Load Balancer</p>
+          </div>
+          <div class="skill-group">
+            <h3>Automation &amp; IaC</h3>
+            <p>Python · REST APIs · Terraform · Infrastructure as Code — developing and expanding</p>
+          </div>
+          <div class="skill-group">
+            <h3><span class="inline-en">Emerging Skills</span><span class="inline-pt">Novas Competências</span></h3>
+            <p>Data Engineering · Data Science · Artificial Intelligence</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">06 — <span class="inline-en">Certifications &amp; Education</span><span class="inline-pt">Certificações &amp; Formação</span></div>
+          <h2><span class="inline-en">Continuous learning with a clear direction.</span><span class="inline-pt">Aprendizado contínuo com direção clara.</span></h2>
+        </div>
+
+        <div class="two-col">
+          <div class="education-card">
+            <h3><span class="inline-en">Certifications &amp; Training</span><span class="inline-pt">Certificações &amp; Cursos</span></h3>
+            <div class="education-item"><strong>Palo Alto Networks — PCNSA</strong><span>Network Security</span></div>
+            <div class="education-item"><strong>Cisco — CCNA Routing &amp; Switching</strong><span>Networking</span></div>
+            <div class="education-item"><strong>Microsoft — AZ-900</strong><span>Azure Fundamentals</span></div>
+            <div class="education-item"><strong>Microsoft — AZ-104</strong><span>Azure Administration</span></div>
+            <div class="education-item"><strong>Microsoft — SC-900</strong><span>Security, Compliance &amp; Identity Fundamentals</span></div>
+            <div class="education-item"><strong>Cisco Academy — CCNP training</strong><span>Advanced Networking</span></div>
+          </div>
+
+          <div class="education-card">
+            <h3><span class="inline-en">Academic Education</span><span class="inline-pt">Formação Acadêmica</span></h3>
+            <div class="education-item">
+              <strong><span class="inline-en">Data Science &amp; Artificial Intelligence</span><span class="inline-pt">Ciência de Dados e Inteligência Artificial</span></strong>
+              <span>Faculdade Saint Paul / EXAME · 2026 — 2028 · In progress</span>
             </div>
-        </section>
-
-        <!-- SKILLS -->
-        <section class="card">
-            <h3 class="lang lang-pt"><i class="fas fa-code"></i> Competências Técnicas</h3>
-            <h3 class="lang lang-en" style="display:none;"><i class="fas fa-code"></i> Technical Skills</h3>
-            
-            <div class="skills-grid">
-                <div class="lang lang-pt"><strong>Redes & Cloud:</strong> Cisco Catalyst, Palo Alto, F5, Citrix NetScaler, BGP, OSPF, VPN IPSec, Azure, OCI, GSLB.</div>
-                <div class="lang lang-en" style="display:none;"><strong>Networking & Cloud:</strong> Cisco Catalyst, Palo Alto, F5, Citrix NetScaler, BGP, OSPF, IPSec VPN, Azure, OCI, GSLB.</div>
-                
-                <div class="lang lang-pt"><strong>Dados & Automação:</strong> Python, Ciência de Dados e IA (Em formação).</div>
-                <div class="lang lang-en" style="display:none;"><strong>Data & Automation:</strong> Python, Data Science and AI (Degree in progress).</div>
+            <div class="education-item">
+              <strong><span class="inline-en">Network &amp; Telecommunications Engineering</span><span class="inline-pt">Engenharia de Redes e Telecomunicações</span></strong>
+              <span>Universidade São Judas Tadeu · 2010 — 2011</span>
             </div>
-        </section>
+            <div class="education-item">
+              <strong><span class="inline-en">Computer Networks</span><span class="inline-pt">Redes de Computadores</span></strong>
+              <span>Faculdade ENIAC · 2006 — 2009</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    </main>
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">07 — <span class="inline-en">Current Direction</span><span class="inline-pt">Direção Profissional</span></div>
+          <h2><span class="inline-en">Building on infrastructure, moving toward automation and data.</span><span class="inline-pt">Partindo da infraestrutura em direção à automação e aos dados.</span></h2>
+        </div>
 
-    <footer>
-        <p>&copy; Henrique Ribeiro - Hosted on GitHub Pages</p>
-    </footer>
+        <div class="summary-card">
+          <div data-lang="en">
+            <p>
+              My professional foundation is enterprise infrastructure. My next step is to combine that foundation with <strong>automation, cloud engineering, data engineering and AI</strong>.
+            </p>
+            <p>
+              The goal is not to leave infrastructure behind, but to become more effective at designing, operating and automating modern infrastructure environments.
+            </p>
+          </div>
+          <div data-lang="pt">
+            <p>
+              Minha base profissional é a infraestrutura corporativa. Meu próximo passo é combinar essa experiência com <strong>automação, engenharia de Cloud, engenharia de dados e IA</strong>.
+            </p>
+            <p>
+              O objetivo não é abandonar infraestrutura, mas ampliar minha capacidade de projetar, operar e automatizar ambientes modernos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- SCRIPT PARA TROCAR O IDIOMA -->
-    <script>
-        function setLanguage(lang) {
-            const ptElements = document.querySelectorAll('.lang-pt');
-            const enElements = document.querySelectorAll('.lang-en');
-            const btnPt = document.getElementById('btn-pt');
-            const btnEn = document.getElementById('btn-en');
+    <section id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <div>
+            <div class="kicker">08 — Contact</div>
+            <h2>
+              <span class="inline-en">Let's connect.</span>
+              <span class="inline-pt">Vamos conversar.</span>
+            </h2>
+            <p>
+              <span class="inline-en">For professional opportunities, technical discussions or networking.</span>
+              <span class="inline-pt">Para oportunidades profissionais, discussões técnicas ou networking.</span>
+            </p>
+          </div>
 
-            if (lang === 'en') {
-                ptElements.forEach(el => el.style.display = 'none');
-                enElements.forEach(el => el.style.display = 'block');
-                btnEn.classList.add('active');
-                btnPt.classList.remove('active');
-            } else {
-                enElements.forEach(el => el.style.display = 'none');
-                ptElements.forEach(el => el.style.display = 'block');
-                btnPt.classList.add('active');
-                btnEn.classList.remove('active');
-            }
-        }
-    </script>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:hrq222@gmail.com">Email</a>
+            <a class="contact-link" href="https://www.linkedin.com/in/henrique-ribeiro-27bab883/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="contact-link" href="https://github.com/hrq222" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Henrique Ribeiro · Infrastructure &amp; Cloud Specialist · GitHub Pages
+    </div>
+  </footer>
+
+  <script>
+    function setLanguage(lang) {
+      document.documentElement.dataset.language = lang;
+      document.getElementById("enBtn").classList.toggle("active", lang === "en");
+      document.getElementById("ptBtn").classList.toggle("active", lang === "pt");
+      localStorage.setItem("language", lang);
+      document.documentElement.lang = lang === "pt" ? "pt-BR" : "en";
+    }
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const next = html.dataset.theme === "dark" ? "light" : "dark";
+      html.dataset.theme = next;
+      localStorage.setItem("theme", next);
+    }
+
+    const savedLanguage = localStorage.getItem("language") || "en";
+    const savedTheme = localStorage.getItem("theme") || "dark";
+    setLanguage(savedLanguage);
+    document.documentElement.dataset.theme = savedTheme;
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
